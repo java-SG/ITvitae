@@ -44,14 +44,14 @@ public class TheDefenseOfConsolas {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("What row is to be defended?");
-        int RowTarget = input.nextInt();
+        int rowTarget = input.nextInt();
         System.out.println("What column is to be defended?");
-        int ColumnTarget = input.nextInt();
-        System.out.println("\u001B[31mR" + RowTarget + "C" + ColumnTarget  + "\u001B[0m is the target to be defended, the crew will be deployed to " +
-                "\u001B[32mR" + (RowTarget - 1) + "C" + (ColumnTarget + 0) + "\u001B[0m, " +
-                "\u001B[32mR" + (RowTarget + 0) + "C" + (ColumnTarget + 1) + "\u001B[0m, " +
-                "\u001B[32mR" + (RowTarget + 0) + "C" + (ColumnTarget - 1) + "\u001B[0m and " +
-                "\u001B[32mR" + (RowTarget + 1) + "C" + (ColumnTarget + 0) + "\u001B[0m"
+        int columnTarget = input.nextInt();
+        System.out.println("\u001B[31mR" + rowTarget + "C" + columnTarget  + "\u001B[0m is the target to be defended, the crew will be deployed to " +
+                "\u001B[32mR" + (rowTarget - 1) + "C" + (columnTarget + 0) + "\u001B[0m, " +
+                "\u001B[32mR" + (rowTarget + 0) + "C" + (columnTarget + 1) + "\u001B[0m, " +
+                "\u001B[32mR" + (rowTarget + 0) + "C" + (columnTarget - 1) + "\u001B[0m and " +
+                "\u001B[32mR" + (rowTarget + 1) + "C" + (columnTarget + 0) + "\u001B[0m"
         );
         Toolkit.getDefaultToolkit().beep();
         System.out.println("The toolkit is working!");
