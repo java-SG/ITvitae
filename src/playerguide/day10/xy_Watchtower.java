@@ -18,7 +18,7 @@ import java.util.Scanner;
 
 public class xy_Watchtower {
     public static void main(String[] args) {
-        DecimalFormat df = new DecimalFormat("#.####");
+        DecimalFormat df = new DecimalFormat("#.##");
         Scanner input = new Scanner(System.in);
         System.out.println("What is the value for the enemies' location on the x-axis?");
         float x = input.nextFloat();
@@ -26,40 +26,42 @@ public class xy_Watchtower {
         float y = input.nextFloat();
 
         double radius = Math.sqrt((x*x) + (y*y));
-        System.out.println("with a distance of " + df.format(radius) + " units");
+        // Calculate the angle from the arc tangent multiplied by (180/pi), to convert the radians to degrees
+        double angle = Math.atan2(x,y) * (180 / Math.PI);
+        if (angle < 0) {
+            angle = (angle + 360);
+        }
 
+        // Define and initiate Loc for usage and building the string inside the if below it
         String Loc = "";
-/*
+
         // This if checks if the enemy is already at the location
         if (x == 0 && y == 0) {
             System.out.println("The enemy is here!");
         } else {
             // if the vertical (y) coordinate of the enemy is exactly 0, it will point precisely into a direction
             if (y == 0) {
-                Loc = "directly to the ";
+                // Do nothing
                 // if the vertical (y) coordinate of the enemy is more than half of what the horizontal (x) coordinate it, it will point jointly into the direction of the enemy with the horizontal (x) coordinate result, or solely.
             } else if ((Math.abs(y) * 2) <= (Math.abs(x))) {
             } else {
                 if (y < 0) {
-                    Loc = "South";
+                    Loc = "S";
                 } else if (y > 0) {
-                    Loc = "North";
+                    Loc = "N";
                 }
             }
             if (x == 0) {
-                // Concatenates the vertical Loc with "directly to the" in case the horizontal axis is 0, for precision.
-                Loc = "directly to the " + Loc;
-
+                // Do nothing
             } else if ((Math.abs(x) * 2) <= (Math.abs(y))) {
             } else {
                 if (x < 0) {
-                    Loc = Loc + "West";
+                    Loc = Loc + "W";
                 } else if (x > 0) {
-                    Loc = Loc + "East";
+                    Loc = Loc + "E";
                 }
             }
-            System.out.println("The enemy is located " + Loc + " (X" + x + ",Y" + y + ")");
+            System.out.println("The enemy is located at the coordinates (X" + (int)x + ",Y" + (int)y + ")" + " with navigation of " + df.format(radius) + " units @ " + df.format(angle) + "∘ " + Loc);
         }
-        */
     }
 }
