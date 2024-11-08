@@ -32,36 +32,18 @@ public class xy_Watchtower {
             angle = (angle + 360);
         }
 
-        // Define and initiate Loc for usage and building the string inside the if below it
-        String Loc = "";
-
-        // This if checks if the enemy is already at the location
-        if (x == 0 && y == 0) {
-            System.out.println("The enemy is here!");
+        double angleArrayDouble = Math.ceil(Math.floor(angle / 22.5) / 2);
+        int angleArray = (int) angleArrayDouble;
+        if (angleArray == 8) {
+            // Adjusting the 22.5 degrees up to 360 back to being within the -22.5 to 22.5 degree range for the array.
+            angleArray = 0;
         } else {
-            // if the vertical (y) coordinate of the enemy is exactly 0, it will point precisely into a direction
-            if (y == 0) {
-                // Do nothing
-                // if the vertical (y) coordinate of the enemy is more than half of what the horizontal (x) coordinate it, it will point jointly into the direction of the enemy with the horizontal (x) coordinate result, or solely.
-            } else if ((Math.abs(y) * 2) <= (Math.abs(x))) {
-            } else {
-                if (y < 0) {
-                    Loc = "S";
-                } else if (y > 0) {
-                    Loc = "N";
-                }
-            }
-            if (x == 0) {
-                // Do nothing
-            } else if ((Math.abs(x) * 2) <= (Math.abs(y))) {
-            } else {
-                if (x < 0) {
-                    Loc = Loc + "W";
-                } else if (x > 0) {
-                    Loc = Loc + "E";
-                }
-            }
-            System.out.println("The enemy is located at the coordinates (X" + (int)x + ",Y" + (int)y + ")" + " with navigation of " + df.format(radius) + " units @ " + df.format(angle) + "∘ " + Loc);
+            // Do nothing.
         }
+        String[] compassAngle = {"North", "North-East", "East", "South-East", "South", "South-West", "West", "North-West"};
+
+        System.out.println("The enemy is located at the coordinates (X" + (int)x + ",Y" + (int)y + ")" + " with navigation of " + df.format(radius) + " units @ " + df.format(angle) + "∘ " + compassAngle[angleArray]);
     }
 }
+
+
