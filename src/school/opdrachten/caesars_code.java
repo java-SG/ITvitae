@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class caesars_code {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter a word to encrypt using Ceasar's Coding system");
+        System.out.println("Enter a word to encrypt using Ceasar's Coding system, words only!");
         String input_word = input.nextLine();
         char input_array[] = input_word.toCharArray();
 
