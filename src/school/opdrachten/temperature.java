@@ -8,9 +8,9 @@ public class temperature {
         DecimalFormat df = new DecimalFormat("#.#");
         Scanner input = new Scanner(System.in);
 
-        int i = 0;
+        boolean i = true;
 
-        while (i == 0) {
+        while (i) {
             System.out.println("Do you want to convert \"Celcius\" or \"Fahrenheit?\"");
             String choice = input.nextLine();
 
@@ -19,13 +19,13 @@ public class temperature {
                 float celcius = input.nextFloat();
                 float fahrenheit = (celcius * 1.8f) + 32;
                 System.out.println(df.format(celcius) + "°C in Fahrenheit is: " + df.format(fahrenheit) + "°F.");
-                i = 1;
+                i = false;
             } else if (choice.toLowerCase().equals("fahrenheit")) {
                 System.out.println("Enter the temperature in Fahrenheit you wish to convert to Celsius");
                 float fahrenheit = input.nextFloat();
                 float celsius = (fahrenheit - 32) / 1.8f;
                 System.out.println(df.format(fahrenheit) + "°F in Celsius is: " + df.format(celsius) + "°C.");
-                i = 1;
+                i = false;
             } else {
                 System.out.println("The input you entered does not match celsius nor fahrenheit, try again!");
             }
