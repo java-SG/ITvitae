@@ -24,7 +24,7 @@ public class temperature {
                 System.out.println("Enter the temperature in Fahrenheit you wish to convert to Celsius");
                 float fahrenheit = input.nextFloat();
                 float celsius = (fahrenheit - 32) / 1.8f;
-                System.out.println(df.format(fahrenheit) + "°F in Fahrenheit is: " + df.format(celsius) + "°C.");
+                System.out.println(df.format(fahrenheit) + "°F in Celsius is: " + df.format(celsius) + "°C.");
                 i = 1;
             } else {
                 System.out.println("The input you entered does not match celsius nor fahrenheit, try again!");
