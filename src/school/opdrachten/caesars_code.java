@@ -110,4 +110,4 @@ which caused issues only due to there being 6 integers between upperCase and low
         System.out.println("The original word is: \"" + input_word + "\" and the encrypted word, while n=" + n + " is: \"" + encrypted_word + "\".");
     }
 }
- */
+*/
