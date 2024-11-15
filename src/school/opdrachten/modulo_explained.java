@@ -15,9 +15,9 @@ public class modulo_explained {
         int c = y - y / n * n; // this works the same as modulo, easier to understand but more writing
 
         /* Always prints the same
-        Conclusion: x % i = ((x / i - Math.floor(x / i)) * i), but using modulo is more readible (if you understand module of course) and allows the usage of int instead of forcing you to use doubles before casting them back to ints (if the desired result is an integer)
+        Conclusion: x % i = x - x / i * i, but using modulo is more readible (if you understand module of course) and allows the usage of int instead of forcing you to use doubles before casting them back to ints (if the desired result is an integer)
         Note: for x % i, divisor (i) can never be 0, same as the latter where you can not divide by zero by default
-         */
+        For understanding the basic principle of modulo: ((x / i - Math.floor(x / i)) * i) makes sense, but requires BigDecimal (incl importing) and uses much more memory*/
         System.out.println((int) a);
         System.out.println((int) b);
         System.out.println(c);
