@@ -49,7 +49,7 @@ public class TheMagicCannon {
         turn % 3 != 0 && turn % 5 != 0 ? "Normal" : turn % 3 == 0 && turn % 5 == 0 ? "Thermal Electrocution" : turn % 3 == 0 ? "Fire" : turn % 5 == 0 ? "Electric" : "Something went wrong";
         Retaining the use of operators as is used in standard if ()'s, removing the ()'s and then replacing the {}'s for ?'s, concatenating every new if statement with :'s, with a final : to define the final else, in this case as some sort of error catcher, since it should never come to that final else in this particular case, but it is required for an inline if
         */
-            System.out.println(turn + ": " + (turn % 3 != 0 && turn % 5 != 0 ? "Normal" : turn % 3 == 0 && turn % 5 == 0 ? "Thermal Electrocution" : turn % 3 == 0 ? "Fire" : turn % 5 == 0 ? "Electric" : "Something went wrong"));
+            System.out.println(turn + ": " + (turn % 3 != 0 && turn % 5 != 0 ? "Normal" : turn % 3 == 0 && turn % 5 == 0 ? "\u001B[30mThermal Electrocution\u001B[0m" : turn % 3 == 0 ? "\u001B[31mFire\u001B[0m" : turn % 5 == 0 ? "\u001B[33mElectric\u001B[0m" : "Something went wrong"));
         }
     }
 }
