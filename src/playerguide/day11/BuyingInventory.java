@@ -30,45 +30,56 @@ Ask the user to enter a number from the menu.
 Using the information above, use a switch (either type) to show the item’s cost.
 */
 
+// Required imports
+import java.util.Arrays;
 import java.util.Scanner;
 import java.text.DecimalFormat;
 
 public class BuyingInventory {
 
-    static int[] itemCount = {5, 1, 3, 1, 0, 1};
-    static String[] itemList = {"Rope", "Sword", "Bread", "Water", "Apple", "Mysterious Key"};
-    static float[] itemPrice = {1.50f, 15f, 3f, 1f, 1f, 100f};
+    // Shop arrays
+    static int[] itemCount = {2, 2, 1, 7, 1, 0, 4};
+    static String[] itemList = {"Rope", "Torches", "Climbing Equipment", "Clean Water", "Machete", "Canoe", "Food Supplies"};
+    static float[] itemPrice = {1.50f, 1.00f, 5.00f, 0.50f, 3.00f, 15.00f, 2.50f};
+
+    // Discounts
+    static String[] discountUsers = {"Carlo","Siem","Marijn","Stefan"};
     static String selectedShopItem;
     static float selectedShopPrice;
     static int selectShopItemNumber;
-    static float discount;
+    static float discount = 1.0f;
 
     public static void main(String[] args) {
+
+        // Declaring imported methods for main
         DecimalFormat df = new DecimalFormat("0.00");
-        // Make method of items with itemName(itemAvailable) + itemPrice
-        // Print output to welcome to store, followed by scanner for input "Browse Shop", "Exit"
         Scanner input = new Scanner(System.in);
+
+        // Start of the shop program
         System.out.println("Hi there customer! What is your name?");
         String name = input.nextLine();
-        if (name.equals("Carlo")) {
+
+        // Determines if discount is applied, checks if the entered name is a match for the array of names that are eligible for discount regardless of UpperCase or LowerCase
+        if (Arrays.stream(discountUsers).anyMatch(name::equalsIgnoreCase)) {
             discount = 0.5f;
-        } else {
-            discount = 1.0f;
         }
+
+        // Builds and prints the list of items in the shop
         System.out.println("These are the items available currently in the store:");
         for (int i = 0; i < itemList.length; i++) {
-            System.out.println("[" + (i + 1) + "] " + itemList[i] + " " + "-".repeat((15 - itemList[i].length())) + " available (" + itemCount[i] + ")");
+            System.out.println("[" + (i + 1) + "] " + itemList[i] + " " + "-".repeat((20 - itemList[i].length())) + " available (" + itemCount[i] + ")");
         }
         System.out.println("Enter the [number] of the item above to select it");
         selectShopItemNumber = input.nextInt();
 
+        // Prints the price of selected item
+        if (discount != 1) {
+            System.out.println("You currently have a " + (int) (100 * discount) + "% discount.");
+        }
         System.out.println("The price of a " + selectionShopItem(selectShopItemNumber) + " is " + df.format(selectionShopPrice(selectShopItemNumber) * discount) + " gold.");
-
-        // int selectedShopItemNumber = input.nextInt();
-        // Print output with list of items prefixed with listNumber (-1 on array?)
-        // Make shop selection
     }
 
+    // Switch for item selection from array
     static String selectionShopItem(int selectShopItemNumber) {
         switch (selectShopItemNumber) {
             case 1:
@@ -86,12 +97,19 @@ public class BuyingInventory {
             case 5:
                 selectedShopItem = itemList[4];
                 break;
+            case 6:
+                selectedShopItem = itemList[5];
+                break;
+            case 7:
+                selectedShopItem = itemList[6];
+                break;
             default:
                 selectedShopItem = "Error";
         };
         return selectedShopItem;
     }
 
+    // Switch for item price from array
     static float selectionShopPrice(int selectShopItemNumber) {
         switch (selectShopItemNumber) {
             case 1:
@@ -108,6 +126,12 @@ public class BuyingInventory {
                 break;
             case 5:
                 selectedShopPrice = itemPrice[4];
+                break;
+            case 6:
+                selectedShopPrice = itemPrice[5];
+                break;
+            case 7:
+                selectedShopPrice = itemPrice[6];
                 break;
             default:
                 selectedShopPrice = 0f;
