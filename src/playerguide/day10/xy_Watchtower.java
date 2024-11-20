@@ -34,7 +34,7 @@ public class xy_Watchtower {
 
         String directAngle = "";
         if (x == 0 || y == 0) {
-            directAngle = "directly";
+            directAngle = "directly ";
         } else {
             // Do nothing, string remains empty
         }
@@ -49,7 +49,7 @@ public class xy_Watchtower {
         }
         String[] compassAngle = {"North", "North-East", "East", "South-East", "South", "South-West", "West", "North-West"};
 
-        System.out.println("The enemy is located at the coordinates (X" + (int)x + ",Y" + (int)y + ")" + " with navigation of " + df.format(radius) + " units @ " + df.format(angle) + "∘ " + directAngle + " " + compassAngle[angleArray]);
+        System.out.println("The enemy is located at the coordinates (X" + (int)x + ",Y" + (int)y + ")" + " with navigational coordinates of " + df.format(radius) + " units @ " + df.format(angle) + "∘ " + directAngle + "" + compassAngle[angleArray]);
     }
 }
 
