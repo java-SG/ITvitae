@@ -70,7 +70,6 @@ public class ThePrototype {
                 break;
             }
         } while (theGuess >= 0 && theGuess <= 100);
-
         System.out.println("You have guessed the number after " + guessCount + " guesses.");
     }
 }
