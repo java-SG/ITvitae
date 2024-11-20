@@ -51,5 +51,6 @@ public class TheMagicCannon {
     public static void main(String[] args) {
         for (int turn = 1; turn <= 100; turn++) {
             System.out.println(turn + ": " + (turn % 3 != 0 && turn % 5 != 0 ? "Normal" : turn % 3 == 0 && turn % 5 == 0 ? "\u001B[30mThermal Electrocution\u001B[0m" : turn % 3 == 0 ? "\u001B[31mFire\u001B[0m" : turn % 5 == 0 ? "\u001B[33mElectric\u001B[0m" : "Something went wrong"));
+        }
     }
 }
