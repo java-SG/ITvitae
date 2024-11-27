@@ -23,9 +23,18 @@ public class TheReplicatorOfDTo {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         // Can be changed to an input if you want to make this array length variable
-        int arrayLength = 6;
+        String arrayLength = "";
+        for (int i = 0; i < 1; i++) {
+            arrayLength = input.nextLine();
+            if (arrayLength.matches("[0-9]")) {
+                i = 1;
+            } else {
+                --i; // Causes i to remain -1 until the if statement becomes true, i * 0 is not allowed due to infinite loop risk, but this is basically the same, up yours java
+                // System.out.println(i);
+            }
+        }
         // Assigns the length of the array as per arrayLength variable
-        int[] numbersOriginal = new int[arrayLength];
+        int[] numbersOriginal = new int[Integer.valueOf(arrayLength)];
 
         // Start program, first array (original)
         System.out.println("Please enter the " + arrayLength + " integers from the original array one by one:");
@@ -69,8 +78,13 @@ public class TheReplicatorOfDTo {
         // Loops through the replicator array but instead of user input now loops through the original array to copy every integer one by one until the array is completely copied
         for (int i = 0; i < numbersReplicator.length; i++) {
             numbersReplicator[i] = numbersOriginal[i];
+            System.out.println(((i < numbersReplicator.length - 1) ? "Replicating original array: " : "The replicated array is now set to: ") + Arrays.toString(numbersReplicator));
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                System.out.println("The replicator crashed!");
+            }
         }
-        System.out.println("The replicated array is now set to: " + Arrays.toString(numbersReplicator));
         System.out.println("The replication process was a success!");
     }
 }
