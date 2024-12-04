@@ -54,7 +54,7 @@ public class BossBattleHuntingTheManticore {
         // Input and start
         System.out.println("Player 2, it is your turn to defend the city\nMan the cannons!");
         while (!battleEnd) {
-            System.out.println("Status Update:\nTurn = " + turn + "\nCity lives = (" + cityLives + "/" + cityLivesMax + ")\nManticore lives = (" + manticoreLives + "/" + manticoreLivesMax + ").\nTake a shot player 1!");
+            System.out.println("Status Update:\nTurn = " + turn + "\nCity lives = (" + cityLives + "/" + cityLivesMax + ")\nManticore lives = (" + manticoreLives + "/" + manticoreLivesMax + ").\nTake a shot player 2!");
             for (int i = 0; i < 1; i++) {
                 posStringAtk = input.nextLine();
                 if (posStringAtk.matches("[0-9]+")) {
@@ -86,14 +86,14 @@ public class BossBattleHuntingTheManticore {
                     }
                 }
 
-                if (cityLives <= 0) {
+                if (cityLives <= 0 && manticoreLives <= 0) {
+                    System.out.println("Against all odds, the Manticore and the City of Consolas have met their end in mutual destruction.");
+                    battleEnd = true;
+                } else if (cityLives <= 0) {
                     System.out.println("The City of Consolas has been destroyed!\nPlayer 1 is victorious!");
                     battleEnd = true;
                 } else if (manticoreLives <= 0) {
                     System.out.println("The Manticore has been terminated, the City of Consolas is safe!\nPlayer 2 is victorious!");
-                    battleEnd = true;
-                } else if (cityLives <= 0 && manticoreLives == 0) {
-                    System.out.println("Against all odds, the Manticore and the City of Consolas have met their end in mutual destruction.");
                     battleEnd = true;
                 }
             }
