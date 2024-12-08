@@ -72,9 +72,11 @@ public class hoofdstuk_05_eindopdracht {
         // Determine max array height according to most common character
         StringBuilder asterixTable = new StringBuilder();
         char[][] arrayAsterix = new char[maxUniqueChar][stringMap.length()];
+        /*
         for (int i = 0; i < maxUniqueChar; i++) {
-            Arrays.fill(arrayAsterix[i], '-');
+            Arrays.fill(arrayAsterix[i], '-'); // To test the whole array has been looped through later all dashes are to be gone when its printed
         }
+        */
 
         // Build *'s per character
         for (int i = 0; i < stringMap.length(); i++) {
