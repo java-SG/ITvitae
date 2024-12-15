@@ -20,7 +20,7 @@ public class FIFO implements Queue {
 
     @Override
     public int peek() {
-        return numberQueue.get(0);
+        return numberQueue.getFirst();
     }
 
     @Override
@@ -53,7 +53,24 @@ public class FIFO implements Queue {
     @Override
     public void printReverse() {
         // One line master race
-        for (int i = 1; i <= (numberQueue.size() - 1); i++) System.out.print((numberQueue.isEmpty()) ? "There is no Number Queue" : ((i == 1) ? "[" : "") + numberQueue.get(numberQueue.size() - i) + (!(i == numberQueue.size() - 1) ? ", " : (", " + numberQueue.get(0) + "] the Number Queue reversed.")));
+        for (int i = 1; i <= (numberQueue.size() - 1); i++) System.out.print((numberQueue.isEmpty()) ? "There is no Number Queue." : ((i == 1) ? "[" : "") + numberQueue.get(numberQueue.size() - i) + (!(i == numberQueue.size() - 1) ? ", " : (", " + numberQueue.get(0) + "] the Number Queue reversed.\n")));
+        /*
+        for (int i = 1; i <= (numberQueue.size() - 1); i++) {
+            if (numberQueue.isEmpty()) {
+                System.out.print("There is no Number Queue.");
+            } else {
+                if (i == 1) {
+                    System.out.print("[");
+                }
+                System.out.print(numberQueue.get(numberQueue.size() - i));
+                if (!(i == numberQueue.size() - 1)) {
+                    System.out.print(", ");
+                } else {
+                    System.out.print(", " + numberQueue.get(0) + "] the Number Queue reversed.\n");
+                }
+            }
+        }
+        */
     }
 
     @Override
