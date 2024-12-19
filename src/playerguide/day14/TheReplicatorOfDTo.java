@@ -25,6 +25,7 @@ public class TheReplicatorOfDTo {
         // Can be changed to an input if you want to make this array length variable
         String arrayLength = "";
         for (int i = 0; i < 1; i++) {
+            System.out.println("How long should the array be?");
             arrayLength = input.nextLine();
             if (arrayLength.matches("[0-9]")) {
                 i = 1;
@@ -85,6 +86,6 @@ public class TheReplicatorOfDTo {
                 System.out.println("The replicator crashed!");
             }
         }
-        System.out.println("The replication process was a success!");
+        System.out.println((Arrays.equals(numbersOriginal, numbersReplicator)) ? "The replication process was a success!" : "The replication process has failed!");
     }
 }
