@@ -35,12 +35,13 @@ public class FIFO implements Queue {
 
     @Override
     public void print() {
-        System.out.println(numberQueue);
+        System.out.println("The Queue currently is: " + numberQueue);
     }
 
     @Override
     public void clear() {
         numberQueue.clear();
+        System.out.println("The Queue has been cleared");
     }
 
     @Override
@@ -90,6 +91,7 @@ public class FIFO implements Queue {
 
     @Override
     public boolean equals(Queue q) {
+        // ???????????????????????????????????????
         return numberQueue.equals(q);
     }
 

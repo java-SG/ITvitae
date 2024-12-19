@@ -15,8 +15,11 @@ public class hoofdstuk_06_eindopdracht {
         boolean anotherChoice = true;
         boolean functionChoice = true;
 
-        String[] functionArray = {"add", "remove", "peek", "empty", "size", "print", "clear", "clear n", "print reverse", "jump the queue", "to string", "equals", "index", "last"};
+        FIFO x = new FIFO();
+
+        String[] functionArray = {"add", "remove", "peek", "empty", "size", "print", "clear", "clear n", "print reverse", "jump the queue", "to string", "equals (disabled)", "index", "last", "exit"};
         while (anotherChoice) {
+            function = "";
             while (functionChoice) {
                 System.out.println("What action would you like to preform:\nEntry is exactly as in the list, not case sensitive");
                 for (String functionIndex : functionArray) {
@@ -30,27 +33,31 @@ public class hoofdstuk_06_eindopdracht {
                 }
             }
 
-            FIFO x = new FIFO();
-
             switch (function) {
+                case "exit":
+                    System.out.println("Exiting program.");
+                    anotherChoice = false;
+                    break;
                 case "add":
                     System.out.print("What value would you like to add to the Queue? ");
                     inputValue = input.nextInt();
+                    input.nextLine();
                     x.add(inputValue);
                     break;
                 case "remove":
                     System.out.print("What value index would you like to remove from the Queue? ");
                     indexValue = input.nextInt();
+                    input.nextLine();
                     x.remove(indexValue);
                     break;
                 case "peek":
-                    x.peek();
+                    System.out.println(x.peek() + " is the first number in the Queue.");
                     break;
                 case "empty":
-                    x.isEmpty();
+                    System.out.println((x.isEmpty()) ? "The Queue is empty." : "The Queue is not empty.");
                     break;
                 case "size":
-                    x.size();
+                    System.out.println("The Queue is currently " + x.size() + " numbers long.");
                     break;
                 case "print":
                     x.print();
@@ -61,50 +68,60 @@ public class hoofdstuk_06_eindopdracht {
                 case "clear n":
                     System.out.print("What value index would you like to clear from the Queue? ");
                     indexValue = input.nextInt();
+                    input.nextLine();
                     x.clear(indexValue);
                     break;
                 case "print reverse":
                     x.printReverse();
                     break;
                 case "jump the queue":
-                    System.out.print("What index place and value would you like to jump the Queue? ");
+                    System.out.print("What index place would you like to jump to in the Queue?\n(The Queue is currently: " + x.size() + " numbers long and consists of: ");
+                    x.print();
                     indexValue = input.nextInt();
-                    System.out.print(", ");
+                    System.out.println("and which value would you like to jump in to the Queue?");
                     inputValue = input.nextInt();
-                    System.out.println();
+                    input.nextLine();
                     x.jumpTheQueue(indexValue, inputValue);
                     break;
                 case "to string":
-                    x.toString();
+                    System.out.println(x);
                     break;
                 case "index":
                     System.out.print("What index value would you like the value of in the Queue? ");
                     indexValue = input.nextInt();
-                    x.indexOf(indexValue);
+                    input.nextLine();
+                    System.out.println(x.indexOf(indexValue) + " is the value of the index value " + indexValue);
                     break;
                 case "last":
                     System.out.print("What value would you like the last index of in the Queue? ");
                     inputValue = input.nextInt();
-                    x.lastIndexOf(inputValue);
+                    input.nextLine();
+                    System.out.println(x.lastIndexOf(inputValue) + " is the last index value of the value " + inputValue);
                     break;
+                /* Didnt understand the point of this function?
+                case "equals":
+                    Queue q[] = new Queue(); // Queue is abstract? No idea whats going on, but Queue is never mentioned to become a class or method to be called so how could it be instantiated for the equals method with (Queue q) parameters?
+                    q = {1, 2, 3};
+                    System.out.println(x.equals(q));
+                    break;
+                */
                 default:
                     break;
             }
 
-            System.out.print("Would you like to use another function? (Yes/No) ");
-            for (int i = 0; i < 1; i++) {
-            another = input.nextLine().toLowerCase();
-                if (another.equals("no") || another.equals("n")) {
-                    i = 1;
-                    anotherChoice = false;
-                } else if (another.equals("yes") || another.equals("y")) {
-                    i = 1;
-                    functionChoice = true;
-                } else {
-                    System.out.println("Yes or No");
-                    --i;
-                }
+            // Sleep for 2 seconds so user can see output of function properly
+            /*
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                System.out.println("-- Something went wrong --");
             }
+            */
+
+            if (anotherChoice) {
+                functionChoice = true;
+            }
+
         }
     }
 }
