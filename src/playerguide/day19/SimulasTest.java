@@ -43,7 +43,7 @@ public class SimulasTest {
                 choiceList += ((i == states.length - 1) ? " or " : "") + "{" + states[i].getAction().toUpperCase() + "}" + ((i < states.length - 2) ? ", " : "");
             }
 
-            // Todo Dump prints to a function to be called
+            // To-do Dump prints to a function to be called
             System.out.println("What action would you like to perform on the Chest?");
             System.out.println("Chest is currently " + chestState.getDescription());
             System.out.println("You can check the state of the Chest or try to " + choiceList +" it.");
